@@ -23,6 +23,9 @@ router.get('/simple/get',function(req,res){
         msg:'hello world'
     })
 })
+router.get('/base/get',function(req,res){
+    res.json(req.query)
+})
 app.use(router)
 const port = process.env.port || 8080;
 module.exports = app.listen(port, () => {
