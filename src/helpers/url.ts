@@ -22,16 +22,16 @@ export function buildURL(url: string, params?: any) {
     let values: string[]
     if (Array.isArray(val)) {
       values = val
-      key += '[]' //如果是数组，那么请求是`/base/get?foo[]=bar&foo[]=baz'`，所有key就是key加上[]
+      key += '[]' // 如果是数组，那么请求是`/base/get?foo[]=bar&foo[]=baz'`，所有key就是key加上[]
     } else {
       values = [val]
     }
     values.forEach(val => {
       if (isDate(val)) {
-        //如果是日期
+        // 如果是日期
         val = val.toISOString()
       } else if (isPlainObject(val)) {
-        //如果是对象
+        // 如果是对象
         val = JSON.stringify(val)
       }
       parts.push(`${encode(key)}=${encode(val)}`)
