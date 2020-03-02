@@ -8,6 +8,7 @@ export default class InterceptorManager<T> {
   constructor() {
     this.interceptor = []
   }
+  // 用use其实就是往数组里push数据
   use(resolved: ResolvedFn<T>, rejected?: RejectedFn): number {
     this.interceptor.push({
       resolved,
